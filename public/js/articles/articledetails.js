@@ -3,6 +3,8 @@ $(document).ready(function() {
 
 	// dafenye()
 
+	// 显示文章的评论数量和查看数量
+	queryArtilceAllReply()
 
 	$("#replyOne").on('click',function(){
 		// 检测是否填写了回复内容
@@ -42,6 +44,28 @@ $(document).ready(function() {
 		}
 	})
 });
+
+
+function queryArtilceAllReply(){
+
+		var articlekey = $("#plliang").attr("data-articlekey")
+		
+		$.ajax({
+			url: "../article/queryArtilceAllReply",
+			headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+			type: 'POST',
+			data: {"articlekey":articlekey},
+			success: function(res){
+				
+				if(!isNaN(parseInt(res[0].countnum))) {
+					$("#plliang").text("评论量（"+res[0].countnum+"）") 
+					$("#plliang").prev().text("浏览（"+res[0].seecount+"）")
+				}
+			}
+		})
+
+}
 
 // function dafenye(){
 	

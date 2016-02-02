@@ -71,7 +71,7 @@
    <h2 class="about_h">您现在的位置是：<a href="../indexmain">首页</a>><a href="">文章详情</a></h2>
     <div class="index_about">
       <h2 class="c_titile"><?php echo $now->title;  ?></h2>
-      <p class="box_c"><span class="d_time">发布时间：<?php echo $now->jointime; ?></span><span>作者：<?php  echo $now->title;?></span><span>浏览（390）</span><span>评论览（14）</span></p>
+      <p class="box_c"><span class="d_time">发布时间：<?php echo $now->jointime; ?></span><span>作者：<?php  echo $now->title;?></span><span>浏览（0）</span><span id="plliang" data-articlekey="<?php echo  $now->articleid; ?>">评论量（0）</span></p>
 
       <ul class="infos">
        <?php echo $now->content; ?>
@@ -116,7 +116,7 @@
     
         <div class="comment">
           <div class="avatars">
-            <img src="<?php $picurl = "images/avatar2.gif"; if($value->headimg != "") { $picurl =$value->headimg ;}; echo "../".$picurl; ?>" alt="" width="80" height="80" /><br />
+            <img src="<?php echo "../".$value->headimg; ?>" alt="" width="80" height="80" /><br />
             <span><?php echo $value->username; ?></span><br /><br />
             <?php echo $value->addtime; ?>
           </div>
@@ -152,7 +152,7 @@
           <img src="../images/title4.gif" alt="" width="216" height="47" class="title" /><br />
           <div class="avatars">
           <?php if(isset($nowuserInfo)) { ?>
-              <img src="<?php $toupicurl = "images/avatar2.gif"; if($nowuserInfo[0]->headimg != "") {$toupicurl = $nowuserInfo[0]->headimg ;} ;  echo "../".$toupicurl ?>" alt="" width="80" height="80" /><br />
+              <img src="<?php echo "../".($nowuserInfo[0]->headimg) ?>" alt="" width="80" height="80" /><br />
               <span><?php echo $nowuserInfo[0]->username; ?></span><br />
           <?php } else { ?>
               <img src="../images/avatar2.gif" alt="" width="80" height="80" /><br />

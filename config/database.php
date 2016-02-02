@@ -53,30 +53,30 @@ return [
         ],
 
         // pc开发
-        // 'mysql' => [
-        //     'driver'    => 'mysql',
-        //     'host'      => 'localhost',
-        //     'database'  => 'cjblogdb',
-        //     'username'  => 'cjandu',
-        //     'password'  => '831989',
-        //     'charset'   => 'utf8',
-        //     'collation' => 'utf8_unicode_ci',
-        //     'prefix'    => '',
-        //     'strict'    => false,
-        // ],
-
-        // mac 开发
-            'mysql' => [
+        'mysql' => [
             'driver'    => 'mysql',
             'host'      => 'localhost',
             'database'  => 'cjblogdb',
-            'username'  => 'root',
+            'username'  => 'cjandu',
             'password'  => '831989',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
             'strict'    => false,
         ],
+
+        // mac 开发
+        //     'mysql' => [
+        //     'driver'    => 'mysql',
+        //     'host'      => 'localhost',
+        //     'database'  => 'cjblogdb',
+        //     'username'  => 'root',
+        //     'password'  => '831989',
+        //     'charset'   => 'utf8',
+        //     'collation' => 'utf8_unicode_ci',
+        //     'prefix'    => '',
+        //     'strict'    => false,
+        // ],
 
         // 外网的
         // 'mysql' => [

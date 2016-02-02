@@ -38,6 +38,12 @@ class Articles extends Model
 
     }
 
+
+    public static function getTotalCount(){
+        $res = DB::select("select count(*) as countall from articles a where a.status = 1");
+        return $res;
+    }
+
     /**
      * 查询最新的文章列表
      * @return [type] [description]
@@ -55,7 +61,7 @@ class Articles extends Model
      */
     public static function getArticleDetails($articleKey){
 
-        // 调用存储过程queryArticleBeAf】
+        // 调用存储过程queryArticleBeAf
         $res = DB::select('call queryArticleBeAf(?)',array($articleKey));
         return $res;
     	
@@ -142,18 +148,30 @@ class Articles extends Model
     }
 
     /**
-     * 查询文章下所有一级回复的条数
+     * 查询文章下所有一级回复的条数和浏览次数
      * @param  [type] $nowkey [description]
      * @return [type]         [description]
      */
     public static function queryOneAticleReplyCount($nowkey) {
         $res = DB::select('
-        SELECT count(*) as countnum FROM `reply` r
-        where r.article_key = ?
+         SELECT count(r.id) as countnum , a.seecount as seecount FROM `articles` a LEFT JOIN `reply` r 
+        ON r.article_key = a.articleid where a.articleid = ?
         ',[$nowkey]);
 
         return $res;
 
+    }
+
+
+    /**
+     * 文章访问次数+1
+     * @param  [type] $articlekey [description]
+     * @return [type]             [description]
+     */
+    public static function updateArticleSeeTimes($articlekey){
+
+        $res = DB::update('UPDATE `articles` a set a.seecount = a.seecount + 1 where a.articleid = ?',[$articlekey]);
+        return $res;
     }
 
     

@@ -5,12 +5,15 @@
 <title>cjblog</title>
 <meta name="keywords" content="cjblog" />
 <meta name="description" content="cjblog" />
+<meta content="<?php echo csrf_token() ?>" name="csrf-token">
 <link href="css/index/base.css" rel="stylesheet">
 <link href="css/index/index.css" rel="stylesheet">
 <link href="css/index/media.css" rel="stylesheet">
 <script src='js/jquery-1.8.0.min.js' type="text/javascript"></script>
 <script type="text/javascript" src="js/index/index.js"></script>
 <script src="js/layer-v2.0/layer/layer.js"></script>
+ <script src="js/jqueryeasyfy/jqueryfeye.js"></script>
+ <link rel="stylesheet" type="text/css" href="js/jqueryeasyfy/jqueryfycss.css" />
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
 </head>
 <body>
@@ -53,7 +56,13 @@
       <?php 
       use App\Common\StringTools;
 
+       // if(sizeof($articleList)>4) {
+       //    echo '<script type="text/javascript">$(".ibody").css("height","1950px")</script>';
+       //  }else{
+       //    echo '<script type="text/javascript">$(".ibody").css("height","auto")</script>';
+       //  }
       foreach ($articleList as $key => $oneart) {
+
           echo '<div class="blogs">';
             echo '<h3><a href="./article/details?now='.$oneart->articleid.'">';
             echo $oneart->title;
@@ -119,8 +128,8 @@
 
              echo '<p class="autor">';
               echo '<span>作者：'.$oneart->username.'</span>';
-              echo '<span>浏览（<a href="/">459</a>）</span>';
-              echo '<span>评论（<a href="/">30</a>）</span>';
+              echo '<span>浏览（<a href="/">0</a>）</span>';
+              echo '<span class="pllist" data-articlekey = "'.$now.'">评论（<a href="/">0</a>）</span>';
              echo '</p>';
 
              echo ' <div class="dateview">'.$oneart->jointime.'</div>';
@@ -131,14 +140,26 @@
 
       }
 
-
-
-
        ?>
      
       
     </div>
+     <!-- 分页 -->
+          <div class="tcdPageCode" style="margin-top: -18px"></div>
+         <input type="hidden" value="<?php echo $countall[0]->countall;?>" id="totalPage">
+         <input type="hidden" value="<?php echo $nowpage;?>" id="current">
 
+   <script>
+    var totalPage = $("#totalPage").val()
+    var everyPageShow = 5
+      $(".tcdPageCode").createPage({
+          pageCount:Math.ceil(totalPage/everyPageShow),
+          current: $("#current").val(),
+          backFn:function(p){
+              console.log(p);
+          }
+      });
+  </script>
   </article>
 
 

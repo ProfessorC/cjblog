@@ -27,7 +27,7 @@
 		 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 		 <span class="grjj">个人简介：</span>
 		    <textarea class="mytrex" name="introduction"><?php 
-				if(isset($usinfo[0]->introduction) && "" != $usinfo[0]->introduction)
+				if("" != $usinfo[0]->introduction)
 				{
 					echo $usinfo[0]->introduction;
 				}else{

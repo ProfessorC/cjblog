@@ -35,6 +35,35 @@ class ArticleController extends Controller
     */
    public function articleDetails(){
 
+    $nowkey = $_GET['now'];
+
+    // 请求来源的ip
+    $fromIp = $_SERVER['REMOTE_ADDR'];
+    // 将ip存入session，12min后失效，如果1min内连续访问那么不会增加访问量
+    if(!Session::has($fromIp)) {
+
+        $arr = array();
+        array_push($arr,$nowkey);
+        Session::put($fromIp, $arr);
+        Session::save();
+        // 访问次数增加1
+        $res = Articles::updateArticleSeeTimes($nowkey);
+
+    }else{
+        // 如果这次访问的和上次不一样那么可以加
+        $nowarr = Session::get($fromIp);
+        if(!in_array($nowkey,$nowarr)){
+             // 访问次数增加1
+             $res = Articles::updateArticleSeeTimes($nowkey);
+             // 加入这次访问的帖子key
+             array_push($nowarr,$nowkey);
+             // 重新转存当前的用户的访问记录
+             Session::put($fromIp, $nowarr);
+             Session::save();
+        }
+    }
+    
+
     // 返回的key
     $result = array();
 
@@ -45,9 +74,6 @@ class ArticleController extends Controller
         $result['nowuserInfo'] = $nowuserInfo;
     }
 
-
-    $nowkey = $_GET['now'];
-        
 
     // 默认第一页，展示5条
     $fromPage = 1-1;
@@ -68,7 +94,6 @@ class ArticleController extends Controller
     $result['articlekey'] = $nowkey;
 
     return view("details/articledetails",$result);
-
 
    }
 
@@ -102,7 +127,16 @@ class ArticleController extends Controller
         $pagebeign = ($pageNow-1)*5;
         $res = Articles::queryReplyList($articlekey,$pagebeign,$evepage);
         return $res;
+   }
 
+   /**
+    * ajax 查询文章列表的回复总数
+    */
+   public function queryArtilceAllReply(){
+
+     $articlekey = $_POST['articlekey'];
+     $res = Articles::queryOneAticleReplyCount($articlekey);
+     return $res;
 
    }
 

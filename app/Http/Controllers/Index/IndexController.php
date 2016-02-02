@@ -24,16 +24,41 @@ class IndexController extends Controller
 
         // 查询出文章列表
         $total = array();
-        $from = 0;
-        $to = 10;
-        $res = Articles::getArticleList($from,$to);
-
+         $to = 5;
+        if(isset($_GET['fr']))
+        {
+            $nowpage = $_GET['fr'];
+            $fr = ($nowpage-1) * $to;
+        }else{
+            $nowpage = 1;
+            $fr = 0;
+        }
+       
+        $res = Articles::getArticleList($fr,$to);
+        $countall = Articles::getTotalCount();
 
          $total['articleList'] = $res;
+         $total['countall'] = $countall;
+         $total['nowpage'] = $nowpage;
 
         //显示首页
          return view('index/indexmain',$total); 
     }
+
+
+    /**
+     * 往下拉更多帖子列表的展示
+     */
+    // public function showMoreArticle() 
+    // {
+
+    //     $frompage = $_POST['frompage'];
+    //     $topage = $_POST['topage'];
+    //     $res = Articles::getArticleList($frompage,$topage);
+
+    //     return $res;
+
+    // }
 
     /**
      * 查询最新的文章列表
