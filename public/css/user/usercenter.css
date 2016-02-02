@@ -1,0 +1,72 @@
+	
+.bg{
+	background-size: cover;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.container {
+    margin: 0 auto;
+    position: relative;
+    top: 60%;
+    width: 300px;
+    height: 620px;
+}
+
+
+.signup_forms_container {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 13px;
+    overflow: hidden;
+    height: 620px;
+    width:300px;
+}
+
+.mytrex {
+	width: 280px;
+	margin-left:8px;
+	margin-top: 20px;
+	height: 150px;
+
+}
+.sexc {
+	
+	margin-top: 20px;
+	margin-left:8px;
+}
+
+.lmg {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.grjj {
+	margin-top: 10px;
+	margin-left: 8px;
+	width: 80px;
+	font-size:14px;color:#fff;line-height:30px;background:#CDCD00;border-radius:6px;display:block;text-align:center;text-decoration:none;position:relative;
+}
+
+.sctx{margin-top:12px;margin-left: 95px; width: 100px;cursor:pointer;font-size:14px;color:#fff;line-height:30px;background:#3bbfb4;border-radius:6px;display:block;text-align:center;text-decoration:none;position:relative;}
+
+.tel{
+	margin-top: 20px;
+}
+.tel span {
+	margin-left: 8px;
+}
+.ttt {
+	margin-top: 20px;
+}
+
+.sub {
+margin-top:12px;margin-left: 95px; width: 100px;cursor:pointer;font-size:14px;color:#fff;line-height:30px;background:#5CACEE;border-radius:6px;display:block;text-align:center;text-decoration:none;position:relative;
+}
+
+.xx {
+	position: absolute;float: right;right:60px;margin-top: 20px;z-index: 999
+}
+
