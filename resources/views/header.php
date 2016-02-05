@@ -24,7 +24,7 @@
     <a href="indexmain">首页</a> 
     <a href="aboutme">关于我</a>
     <a href="writeThing">写点什么</a>
-    <a href="seeTing">看到什么</a>
+    <a href="seeTing">照片墙</a>
   </nav>
   </header>
 

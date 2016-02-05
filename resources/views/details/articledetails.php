@@ -116,7 +116,12 @@
     
         <div class="comment">
           <div class="avatars">
+          <?php if($value->headimg){ ?>
             <img src="<?php echo "../".$value->headimg; ?>" alt="" width="80" height="80" /><br />
+            <?php } else { ?>
+
+                 <img src="../images/avatar2.gif" alt="" width="80" height="80" /><br />
+            <?php } ?>
             <span><?php echo $value->username; ?></span><br /><br />
             <?php echo $value->addtime; ?>
           </div>
@@ -152,7 +157,14 @@
           <img src="../images/title4.gif" alt="" width="216" height="47" class="title" /><br />
           <div class="avatars">
           <?php if(isset($nowuserInfo)) { ?>
+              <?php if($nowuserInfo[0]->headimg != "") {  ?>
+
+              
               <img src="<?php echo "../".($nowuserInfo[0]->headimg) ?>" alt="" width="80" height="80" /><br />
+              <?php   } else {?>
+
+              <img src="../images/avatar2.gif" alt="" width="80" height="80" /><br />
+              <?php } ?>
               <span><?php echo $nowuserInfo[0]->username; ?></span><br />
           <?php } else { ?>
               <img src="../images/avatar2.gif" alt="" width="80" height="80" /><br />

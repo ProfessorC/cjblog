@@ -1,17 +1,16 @@
 <?php 
 
-namespace App\Http\Controllers\register;
+namespace App\Http\Controllers\seeting;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Model\Users;
 use Redirect;
 use Session;
 
 
 
-class RegisterController extends Controller
+class PicturewallController extends Controller
 {
 
 
@@ -19,53 +18,12 @@ class RegisterController extends Controller
 	 * 点击注册调用，存入注册信息
 	 * @return [type] [description]
 	 */
-	public function checkRegisterInfo()
+	public function seeTing()
 	{
 
-        $email = $_POST['email'];
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-
-
-        $resu = Users::getRegisterInfo($email,$username,$password);
-
-        if($resu != "error")
-        {
-            // 将用户名和密码存入session
-            // 将用户的信息存入
-            Session::put('username',$username);
-            Session::put('password',$password);
-            Session::put('userkey',$resu);
-            return Redirect::to('login');          
-            
-        }
-        else
-        {
-            return "注册失败！";
-        }
-        
+        return view("seeTing/seeTing");
 
 	}
-
-	/**
-	 * 查询用户名是否已经注册
-	 */
-	pubLic function checkUserName()
-	{
-
-        $username = $_POST['username'];
-        $userSize = Users::checkUserName($username);
-        return $userSize;
-	}
-
-
-
-
-
-
-
-
-
 
     /**
      * Display a listing of the resource.

@@ -20,9 +20,11 @@ $(document).ready(function(){
 })
 
 function queryArtilceAllReply(){
+
 	$(".pllist").each(function(){
 		var _this = $(this)
 		var articlekey = $(this).attr("data-articlekey")
+		
 		$.ajax({
 			url: "article/queryArtilceAllReply",
 			headers: {
@@ -30,7 +32,7 @@ function queryArtilceAllReply(){
 			type: 'POST',
 			data: {"articlekey":articlekey},
 			success: function(res){
-				
+			
 				if(!isNaN(parseInt(res[0].countnum))) {
 					// 塞评论
 					_this.find('a').text(res[0].countnum)

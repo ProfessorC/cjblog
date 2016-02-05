@@ -127,8 +127,8 @@
                  echo ' <a href="article/details?now='.$now.'" target="_blank" class="readmore">阅读全文&gt;&gt;</a>';
 
              echo '<p class="autor">';
-              echo '<span>作者：'.$oneart->username.'</span>';
-              echo '<span>浏览（<a href="/">0</a>）</span>';
+              echo '<span>作者'.$oneart->username.'</span>';
+              echo '<span>浏览（<a href="/">110</a>）</span>';
               echo '<span class="pllist" data-articlekey = "'.$now.'">评论（<a href="/">0</a>）</span>';
              echo '</p>';
 

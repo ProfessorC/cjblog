@@ -76,9 +76,8 @@ Route::get("/writeThing",function(){
 /**
  * 看点什么页面
  */
-Route::get("/seeTing",function(){
-	return view('seeTing/seeTing');
-});
+Route::get("/seeTing",'seeting\PicturewallController@seeTing');
+// Route::get("/seeTing",['middleware' => 'logincheck','uses' =>'seeting\PicturewallController@seeTing']);
 
 /**
  * 展示登录页
