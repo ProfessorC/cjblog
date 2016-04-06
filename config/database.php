@@ -53,17 +53,17 @@ return [
         ],
 
         // pc开发
-        'mysql' => [
-            'driver'    => 'mysql',
-            'host'      => 'localhost',
-            'database'  => 'cjblogdb',
-            'username'  => 'cjandu',
-            'password'  => '831989',
-            'charset'   => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix'    => '',
-            'strict'    => false,
-        ],
+        // 'mysql' => [
+        //     'driver'    => 'mysql',
+        //     'host'      => 'localhost',
+        //     'database'  => 'cjblogdb',
+        //     'username'  => 'cjandu',
+        //     'password'  => '831989',
+        //     'charset'   => 'utf8',
+        //     'collation' => 'utf8_unicode_ci',
+        //     'prefix'    => '',
+        //     'strict'    => false,
+        // ],
 
         // mac 开发
         //     'mysql' => [
@@ -79,17 +79,17 @@ return [
         // ],
 
         // 外网的
-        // 'mysql' => [
-        //     'driver'    => 'mysql',
-        //     'host'      => 'qdm164639231.my3w.com',
-        //     'database'  => 'qdm164639231_db',
-        //     'username'  => 'qdm164639231',
-        //     'password'  => '831989cj',
-        //     'charset'   => 'utf8',
-        //     'collation' => 'utf8_unicode_ci',
-        //     'prefix'    => '',
-        //     'strict'    => false,
-        // ],
+        'mysql' => [
+            'driver'    => 'mysql',
+            'host'      => 'qdm164639231.my3w.com',
+            'database'  => 'qdm164639231_db',
+            'username'  => 'qdm164639231',
+            'password'  => '831989cj',
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+            'strict'    => false,
+        ],
 
 
         'pgsql' => [
